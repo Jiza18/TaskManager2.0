@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -37,6 +38,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import com.example.taskmanager.ui.theme.TaskManagerTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +60,15 @@ val list = List(20) {Task(it + 1, "Tarea ${it + 1}", false)}.toMutableStateList(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TaskManager(tasksList : List<Task>, onComplete : (Task) -> Unit, onDelete : (Task) -> Unit, onAdd : (String) -> Unit) {
-
+    Text(text = "TaskManager by Semi",
+        modifier = Modifier.fillMaxWidth()
+            .wrapContentSize(Alignment.Center)
+            .padding(top = 10.dp),
+        style = TextStyle(
+            fontSize = 35.sp,
+            fontWeight = FontWeight.Bold
+        )
+    )
     Column(
         modifier = Modifier
             .fillMaxWidth()
